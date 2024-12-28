@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="urdf">
+  <link
+    name="base_footprint">
+    <inertial>
+      <origin
+        xyz="-0.0345106164413188 -0.00370724383349588 0.0150768507191872"
+        rpy="0 0 0" />
+      <mass
+        value="5.31571052376295E-05" />
+      <inertia
+        ixx="1.45400341050666E-10"
+        ixy="1.1015265033305E-26"
+        ixz="4.16243645186907E-27"
+        iyy="2.65196676411873E-10"
+        iyz="-1.28609964399248E-26"
+        izz="1.45400341050666E-10" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/base_footprint.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/base_footprint.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="6.9389E-17 -0.033126 6.9389E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.010403" />
+      <inertia
+        ixx="7.888E-07"
+        ixy="3.227E-24"
+        ixz="-4.6448E-24"
+        iyy="1.1661E-06"
+        iyz="1.6474E-24"
+        izz="7.6385E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_link_joint"
+    type="fixed">
+    <origin
+      xyz="-0.034449 -0.015024 0.037865"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="base_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="rueda_left">
+    <inertial>
+      <origin
+        xyz="-3.46944695195361E-18 0 1.73472347597681E-18"
+        rpy="0 0 0" />
+      <mass
+        value="5.31571052376294E-05" />
+      <inertia
+        ixx="2.65196676411872E-10"
+        ixy="7.18881747627078E-27"
+        ixz="-2.71331529614589E-27"
+        iyy="1.45400341050665E-10"
+        iyz="-4.21932577051101E-26"
+        izz="1.45400341050665E-10" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/rueda_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/rueda_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rueda_left_joint"
+    type="fixed">
+    <origin
+      xyz="0.01137 -0.040778 -9.1237E-05"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rueda_left" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="rueda_right">
+    <inertial>
+      <origin
+        xyz="6.93889390390723E-18 0 -1.73472347597681E-18"
+        rpy="0 0 0" />
+      <mass
+        value="5.31571052376292E-05" />
+      <inertia
+        ixx="2.65196676411871E-10"
+        ixy="5.99809599461261E-27"
+        ixz="-1.26034226898413E-27"
+        iyy="1.45400341050665E-10"
+        iyz="-4.05381273347173E-26"
+        izz="1.45400341050665E-10" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/rueda_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/rueda_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rueda_right_joint"
+    type="fixed">
+    <origin
+      xyz="-0.01123 -0.040778 -9.1237E-05"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rueda_right" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="caster_front">
+    <inertial>
+      <origin
+        xyz="0 0.00194107729719985 -3.46944695195361E-18"
+        rpy="0 0 0" />
+      <mass
+        value="1.19568337316797E-05" />
+      <inertia
+        ixx="1.10150680331523E-11"
+        ixy="1.84136831372096E-44"
+        ixz="-1.70132457547993E-44"
+        iyy="8.50890915412933E-12"
+        iyz="9.91516005255474E-28"
+        izz="1.10150680331523E-11" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/caster_front.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/caster_front.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="caster_front_link"
+    type="fixed">
+    <origin
+      xyz="0 -0.0439223243392608 0.0130000000000001"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="caster_front" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="base_alta">
+    <inertial>
+      <origin
+        xyz="-0.00319040539219524 0.049220093924398 0.000981360360559142"
+        rpy="0 0 0" />
+      <mass
+        value="0.0132287477004238" />
+      <inertia
+        ixx="1.6270779519678E-05"
+        ixy="-3.45923665292277E-08"
+        ixz="-5.71408335634743E-08"
+        iyy="2.21760234097984E-06"
+        iyz="-3.04167868780514E-07"
+        izz="1.57245413987899E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/base_alta.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/base_alta.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_alta_joint"
+    type="fixed">
+    <origin
+      xyz="0 -0.0257223243392608 0"
+      rpy="0 -0.300040760686708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="base_alta" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="base_brazo">
+    <inertial>
+      <origin
+        xyz="-0.00131190278884245 0.0013952763323219 -0.00100683541399575"
+        rpy="0 0 0" />
+      <mass
+        value="0.000898428749668525" />
+      <inertia
+        ixx="3.77000106630414E-08"
+        ixy="2.55848945742919E-09"
+        ixz="-5.95710974441721E-09"
+        iyy="7.06087018620749E-08"
+        iyz="2.69437289142249E-09"
+        izz="3.61921158112464E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/base_brazo.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/base_brazo.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_brazo_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.0257223243392608 0"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="base_alta" />
+    <child
+      link="base_brazo" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="empujar">
+    <inertial>
+      <origin
+        xyz="-0.000162761065659097 0.00249999999999999 -0.00125"
+        rpy="0 0 0" />
+      <mass
+        value="0.000217146018366026" />
+      <inertia
+        ixx="5.79883389157145E-10"
+        ixy="-1.60129883534209E-25"
+        ixz="-3.32164714728325E-24"
+        iyy="6.02133781017732E-09"
+        iyz="1.04570281756909E-25"
+        izz="6.37502743020319E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/empujar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/empujar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="empujar_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.00149999999999999 0.000876809499388374"
+      rpy="-3.14159265358979 0 3.14159265358979" />
+    <parent
+      link="base_brazo" />
+    <child
+      link="empujar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="garra_right">
+    <inertial>
+      <origin
+        xyz="0.000499999999999997 0.0025 0.0025"
+        rpy="0 0 0" />
+      <mass
+        value="2.5E-05" />
+      <inertia
+        ixx="1.04166666666666E-10"
+        ixy="4.5188437401285E-27"
+        ixz="6.46234853557053E-27"
+        iyy="5.41666666666665E-11"
+        iyz="-4.25179285499401E-26"
+        izz="5.41666666666666E-11" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/garra_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/garra_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="garra_right_joint"
+    type="fixed">
+    <origin
+      xyz="0.00199999999999978 0 -0.00750000000000014"
+      rpy="0 0 0" />
+    <parent
+      link="empujar" />
+    <child
+      link="garra_right" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="garra_left">
+    <inertial>
+      <origin
+        xyz="-0.0362340963148376 -0.0150572708310525 0.036304075881177"
+        rpy="0 0 0" />
+      <mass
+        value="0.0249807971751331" />
+      <inertia
+        ixx="3.66050263139615E-05"
+        ixy="-1.07320912031314E-07"
+        ixz="1.15336633081441E-06"
+        iyy="3.61505056274145E-05"
+        iyz="3.74952358099008E-07"
+        izz="3.57812220103228E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/garra_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/garra_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="garra_left_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.024535 -0.039365 -0.027593"
+      rpy="1.5708 1.2708 3.1416" />
+    <parent
+      link="empujar" />
+    <child
+      link="garra_left" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="caster_back">
+    <inertial>
+      <origin
+        xyz="0 0.00194107729719985 -0.00124007338649024"
+        rpy="0 0 0" />
+      <mass
+        value="1.19568337316797E-05" />
+      <inertia
+        ixx="1.10150680331523E-11"
+        ixy="1.84136831372096E-44"
+        ixz="-1.70132457547992E-44"
+        iyy="8.50890915412933E-12"
+        iyz="8.24536042386014E-28"
+        izz="1.10150680331523E-11" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/caster_back.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf/meshes/caster_back.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="caster_back_joint"
+    type="prismatic">
+    <origin
+      xyz="0 -0.043922 -0.011641"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="caster_back" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>
