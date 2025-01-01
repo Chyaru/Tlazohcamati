@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+
+<robot name="susy" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find susy_description)/urdf/susy_gazebo.xacro"/>
+<xacro:include filename="$(find susy_description)/urdf/susy_ros2_control.xacro"/>
+<xacro:property name="PI" value="3.14159265359"/>
+
+  <link name="world"/>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.034449 0.0047388 0.015024" rpy="0 0 0" />
+      <mass value="0.010403" />
+      <inertia
+        ixx="7.888E-07"
+        ixy="4.0447E-24"
+        ixz="-4.6448E-24"
+        iyy="1.1661E-06"
+        iyz="1.6738E-24"
+        izz="7.6385E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="-15 15 3.1"
+        rpy="${PI/2} 0 0" />
+      <geometry>
+        <mesh
+          filename="package://susy_description/3Dmodels/base_simple.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://susy_description/3Dmodels/base_simple.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="virtual_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="world"/>
+      <child link="base_link"/>
+  </joint>
+
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="0 4.33680868994202E-19 1.73472347597681E-18"
+        rpy="0 0 0" />
+      <mass
+        value="5.31571052376294E-05" />
+      <inertia
+        ixx="2.65196676411872E-10"
+        ixy="7.18881747627078E-27"
+        ixz="-2.7133634443945E-27"
+        iyy="1.45400341050665E-10"
+        iyz="-4.35230298590259E-26"
+        izz="1.45400341050665E-10" />
+    </inertial>
+    <visual>
+      <origin xyz="0 -3.2 -3.2" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://susy_description/3Dmodels/rueda.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://susy_description/3Dmodels/rueda.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_left_wheel" type="continuous">
+    <origin xyz="-12.2 0 3.2" rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="0 4.33680868994202E-19 -1.73472347597681E-18"
+        rpy="0 0 0" />
+      <mass
+        value="5.31571052376292E-05" />
+      <inertia
+        ixx="2.65196676411871E-10"
+        ixy="5.99850227570605E-27"
+        ixz="-1.26032668765701E-27"
+        iyy="1.45400341050665E-10"
+        iyz="-4.01532792299361E-26"
+        izz="1.45400341050665E-10" />
+    </inertial>
+    <visual>
+      <origin xyz="0 -3.2 -3.2" rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://susy_description/3Dmodels/rueda.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://susy_description/3Dmodels/rueda.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_right_wheel"
+    type="continuous">
+    <origin xyz="10.5 0 3.2" rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="front_caster">
+    <inertial>
+      <origin
+        xyz="0 0.00194107729719985 -3.46944695195361E-18"
+        rpy="0 0 0" />
+      <mass
+        value="1.19568337316797E-05" />
+      <inertia
+        ixx="1.10150680331523E-11"
+        ixy="1.84136831372096E-44"
+        ixz="-1.70132457547993E-44"
+        iyy="8.50890915412933E-12"
+        iyz="9.91516005255474E-28"
+        izz="1.10150680331523E-11" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://susy_description/3Dmodels/caster_front.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://susy_description/3Dmodels/caster_front.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_front_caster"
+    type="fixed">
+    <origin
+      xyz="0 13 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_caster" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

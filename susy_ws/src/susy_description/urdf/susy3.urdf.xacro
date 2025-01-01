@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+
+<robot name="susy" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find susy_description)/urdf/susy_gazebo.xacro"/>
+    <xacro:include filename="$(find susy_description)/urdf/susy_ros2_control.xacro"/>
+
+    <xacro:property name="PI" value="3.14159265359"/>
+
+    <xacro:property name="Z" value="0.04"/>
+    <xacro:property name="escala" value="${Z} ${Z} ${Z}"/>
+
+    <link name="base_footprint"/>
+    
+    
+    <link name="base_link">
+        <inertial>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+          <mass value="0.1"/>
+          <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <!--inertial>
+            <origin xyz="-0.034449 0.0047388 0.015024" rpy="0 0 0" />
+            <mass value="0.010403" />
+            <inertia
+              ixx="7.888E-07"
+              ixy="4.0447E-24"
+              ixz="-4.6448E-24"
+              iyy="1.1661E-06"
+              iyz="1.6738E-24"
+              izz="7.6385E-07" />
+        </inertial-->
+        <visual>
+            <origin xyz="${Z*-15.0} ${Z*15.0} ${Z*0.0}" rpy="${PI/2} 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://susy_description/3Dmodels/base_simple.STL" scale="${escala}"/>
+            </geometry>
+            <material name="base0">
+                <color rgba="0.5 0.5 0.5 0.5"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="${Z*-15.0} ${Z*15.0} ${Z*0.0}" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://susy_description/3Dmodels/base_simple.STL" scale="${escala}"/>
+            </geometry>
+            <material name="dark">
+                <color rgba="0.1 0.1 0.1 0.9"/>
+            </material>
+        </collision>
+    </link>
+    <link name="base_alta">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.0"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 ${Z*0}" rpy="${PI/2} 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://susy_description/3Dmodels/base_alta.STL" scale="${escala}"/>
+            </geometry>
+            <material name="dark">
+                <color rgba="0.1 0.1 0.1 0.9"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.0 0.0 0.0"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="right_wheel">
+        <inertial>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+          <mass value="0.1"/>
+          <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <!--inertial>
+            <origin xyz="0 4.33680868994202E-19 1.73472347597681E-18" rpy="0 0 0" />
+            <mass value="5.31571052376294E-05" />
+            <inertia ixx="2.65196676411872E-10" ixy="7.18881747627078E-27" ixz="-2.7133634443945E-27"
+                     iyy="1.45400341050665E-10" iyz="-4.35230298590259E-26"
+                     izz="1.45400341050665E-10" />
+        </inertial-->
+        <visual>
+            <origin xyz="${Z*0.0} ${Z*3.2} ${Z*-3.2}" rpy="${PI/2} 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://susy_description/3Dmodels/rueda.STL" scale="${escala}"/>
+            </geometry>
+            <material name="ar">
+                <color rgba="1.0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="${Z*0.0} ${Z*0} ${Z*0}" rpy="${PI/2} 0.0 0.0"/>
+            <geometry>
+                <sphere radius="${Z*3.2}"/>
+            </geometry>
+        </collision>
+        <!--collision>
+            <origin xyz="${Z*10.5} ${Z*3.2} ${Z*-3.2}" rpy="${PI/2} 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://susy_description/3Dmodels/rueda.STL" scale="${escala}"/>
+            </geometry>
+        </collision-->
+    </link>
+
+    <link name="left_wheel">
+        <inertial>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+          <mass value="0.1"/>
+          <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+            
+        <!--inertial>
+            <origin xyz="0 4.33680868994202E-19 1.73472347597681E-18" rpy="0 0 0" />
+            <mass value="5.31571052376294E-05" />
+            <inertia ixx="2.65196676411872E-10" ixy="7.18881747627078E-27" ixz="-2.7133634443945E-27"
+                     iyy="1.45400341050665E-10" iyz="-4.35230298590259E-26"
+                     izz="1.45400341050665E-10" />
+        </inertial-->
+        <visual>
+            <origin xyz="${Z*-1.7} ${Z*3.2} ${Z*-3.2}" rpy="${PI/2} 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://susy_description/3Dmodels/rueda.STL" scale="${escala}"/>
+            </geometry>
+            <material name="ar">
+                <color rgba="1.0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="${Z*0.0} ${Z*0} ${Z*0}" rpy="${PI/2} 0.0 0.0"/>
+            <geometry>
+                <sphere radius="${Z*3.2}"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="caster_front">
+        <inertial>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+          <mass value="0.1"/>
+          <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <!--inertial>
+            <origin xyz="0 4.33680868994202E-19 1.73472347597681E-18" rpy="0 0 0" />
+            <mass value="5.31571052376294E-05" />
+            <inertia ixx="2.65196676411872E-10" ixy="7.18881747627078E-27" ixz="-2.7133634443945E-27"
+                     iyy="1.45400341050665E-10" iyz="-4.35230298590259E-26"
+                     izz="1.45400341050665E-10" />
+        </inertial-->
+        <visual>
+            <origin xyz="0.0 0.0 ${Z*-3.2}" rpy="${PI/2} 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://susy_description/3Dmodels/caster_front.STL" scale="${escala}"/>
+            </geometry>
+            <material name="dark">
+                <color rgba="0.1 0.1 0.1 0.9"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 ${Z*-2.5}" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <sphere radius="${Z*1.0}"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="base_joint" type="fixed">
+        <origin xyz="0.0 0.0 ${Z*3.2}" rpy="0.0 0.0 0.0"/>
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+    </joint>
+    <joint name="alta_joint" type="fixed">
+        <origin xyz="${Z*17.5} ${Z*-17.5} ${Z*15}" rpy="0.0 0.0 ${PI}"/>
+        <parent link="base_link"/>
+        <child link="base_alta"/>
+    </joint>
+
+    <joint name="base_caster_front" type="fixed">
+        <origin xyz="0.0 ${Z*13} ${Z*0}" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="caster_front"/>
+    </joint>
+
+    <joint name="base_right_wheel" type="continuous">
+        <origin xyz="${Z*10.5} ${Z*0.0} ${Z*0.0}" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="right_wheel"/>
+        <axis xyz="-1.0 0.0 0.0"/>
+    </joint>
+
+    <joint name="base_left_wheel" type="continuous">
+        <origin xyz="${Z*-10.5} ${Z*0.0} ${Z*0.0}" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="left_wheel"/>
+        <axis xyz="-1.0 0.0 0.0"/>
+    </joint>
+
+    <link name="laser_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.0"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz = "${Z*0.0} ${Z*0.0} ${Z*0.0}" rpy="0 0 0"/>
+            <geometry>
+              <mesh filename="package://susy_description/3Dmodels/laser_link.STL" scale="${escala}"/>
+            </geometry>
+        </visual>
+        <collision>
+          <origin xyz = "${Z*0.0} ${Z*0.0} ${Z*0.0}" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="package://susy_description/3Dmodels/laser_link.STL" scale="${escala}"/>
+          </geometry>
+        </collision>
+      </link>
+    
+      <joint name="lasert_joint" type="fixed">
+          <parent link="base_alta"/>
+          <child link="laser_link"/>
+          <origin xyz="${Z*0.0} ${Z*0.0} ${Z*15.0}" rpy="0 0 ${PI}"/>
+      </joint>
+
+</robot>
